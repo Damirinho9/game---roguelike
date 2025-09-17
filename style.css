@@ -1,0 +1,32 @@
+/* Минимальная стилизация без внешних картинок */
+:root {
+  --tile: 26px; /* размер клетки */
+}
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#111; color:#eee; }
+h1 { font-size: 18px; margin:12px 0; }
+#ui{ margin-bottom:10px; }
+.field { 
+  position: relative; 
+  width: calc(var(--tile) * 40);
+  height: calc(var(--tile) * 24);
+  background: #222;
+  outline: 1px solid #333;
+  display:grid;
+  grid-template-columns: repeat(40, var(--tile));
+  grid-template-rows: repeat(24, var(--tile));
+}
+.tile { width: var(--tile); height: var(--tile); box-sizing: border-box; position: relative; display:flex; align-items:center; justify-content:center; font-size:14px; }
+.wall { background: #444; }
+.floor { background: #181818; outline: 1px solid #202020; }
+.hero { background:#1f2a12; }
+.enemy { background:#2a1010; }
+.item { background:#0f1b28; }
+.health { position:absolute; left:2px; right:2px; bottom:2px; height:4px; border-radius:2px; background:#333; overflow:hidden; }
+.health>span{ display:block; height:100%; background:#e33; }
+.hp-hero .health>span{ background:#6f6; }
+.token { pointer-events:none; }
+.token.hero::after { content:'🙂'; }
+.token.enemy::after { content:'👾'; }
+.token.potion::after { content:'🧪'; }
+.token.sword::after { content:'🗡️'; }
+.help{opacity:.7}
